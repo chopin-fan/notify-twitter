@@ -1,0 +1,42 @@
+name: Test Twitter Action
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Message to post to Twitter'
+        required: true
+        default: '🧪 Testing GitHub Action for Twitter posting!'
+      media:
+        description: 'Media file paths (optional)'
+        required: false
+        default: ''
+
+jobs:
+  test-twitter-action:
+    name: Test Twitter Posting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build action
+        run: npm run build
+        
+      - name: Test the action
+        uses: ./
+        with:
+          message: ${{ github.event.inputs.message }}
+          twitter-app-key: ${{ secrets.TWITTER_APP_KEY }}
+          twitter-app-secret: ${{ secrets.TWITTER_APP_SECRET }}
+          twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          media: ${{ github.event.inputs.media }} 
