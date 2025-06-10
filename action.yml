@@ -1,0 +1,47 @@
+# See the syntax docs at
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
+
+name: github-action-notify-twitter
+description: GitHub action that can send a custom message to a Twitter account
+
+inputs:
+  message:
+    description: >
+      Message to post to Twitter.
+    required: true
+  twitter-app-key:
+    description: >
+      Consumer API key, available in the "Keys and tokens"
+      section of your application in the Twitter Developer site.
+    required: true
+  twitter-app-secret:
+    description: >
+      Consumer API secret key, available in the "Keys and tokens"
+      section of your application in the Twitter Developer site.
+    required: true
+  twitter-access-token:
+    description: >
+      Application access token, available in the "Keys and tokens"
+      section of your application in the Twitter Developer site.
+    required: true
+  twitter-access-token-secret:
+    description: >
+      Application access token secret, available in the "Keys and tokens"
+      section of your application in the Twitter Developer site.
+    required: true
+  media:
+    description: >
+      A list of paths for media objects (single photo, video or animated GIF) to use in the post
+    required: false
+  media-alt-text:
+    description: >
+      A list of image alternative text (alt text) that describe the meaning and the context of the image
+    required: false
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'x'
+  color: 'gray-dark'

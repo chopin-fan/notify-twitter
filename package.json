@@ -1,0 +1,46 @@
+{
+  "name": "github-action-notify-twitter",
+  "version": "1.2.3",
+  "description": "GitHub action that can send a custom message to a Twitter account",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest",
+    "prepare": "husky",
+    "build": "ncc build src --license licenses.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nearform-actions/github-action-notify-twitter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nearform-actions/github-action-notify-twitter/issues"
+  },
+  "homepage": "https://github.com/nearform-actions/github-action-notify-twitter#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@vercel/ncc": "^0.38.3",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-jest": "^28.13.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "lint-staged": "^16.1.0",
+    "prettier": "^2.8.8"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1",
+    "actions-toolkit": "github:nearform/actions-toolkit",
+    "twitter-api-v2": "^1.23.2"
+  }
+}

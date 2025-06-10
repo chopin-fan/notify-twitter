@@ -1,0 +1,29 @@
+name: Local Twitter Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Twitter message'
+        required: true
+        default: 'Hello from local GitHub Action!'
+      media_path:
+        description: 'Media file path (optional)'
+        required: false
+
+jobs:
+  send-tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Send Twitter notification
+        uses: ./
+        with:
+          message: ${{ github.event.inputs.message || 'Test message from local action' }}
+          twitter-app-key: ${{ secrets.TWITTER_APP_KEY }}
+          twitter-app-secret: ${{ secrets.TWITTER_APP_SECRET }}
+          twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          media: ${{ github.event.inputs.media_path }} 

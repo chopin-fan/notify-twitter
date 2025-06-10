@@ -6,7 +6,7 @@ on:
       message:
         description: 'Message to post to Twitter'
         required: true
-        default: '🧪 Testing GitHub Action for Twitter posting!'
+        default: '🧪 GitHub Action测试成功！这是一条来自自动化的推文 ✨'
       media:
         description: 'Media file paths (optional)'
         required: false
@@ -35,8 +35,8 @@ jobs:
         uses: ./
         with:
           message: ${{ github.event.inputs.message }}
-          twitter-app-key: ${{ secrets.TWITTER_APP_KEY }}
-          twitter-app-secret: ${{ secrets.TWITTER_APP_SECRET }}
-          twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          twitter-app-key: "XQ2Csl2hcG4R1S5YtYHxIJLhS"
+          twitter-app-secret: "7XscNGjwuMA83JuDlDMpsWEc2Q298NRBa3evdn1vsNYgFbvJCP"
+          twitter-access-token: "1932234031439245312-lqodRLrv0pmSxNysICYOgex8FB7sa4"
+          twitter-access-token-secret: "Vrlaz7kYIQIB3hjrumzEegFV75PqU9uENuedJy7cBi3Jc"
           media: ${{ github.event.inputs.media }} 
