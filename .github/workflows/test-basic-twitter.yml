@@ -1,0 +1,21 @@
+name: Test Basic Twitter Function
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-basic:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Send test tweet
+      uses: ./
+      with:
+        message: '🚀 基线版本推文测试 ' 
+        twitter-app-key: ${{ secrets.TWITTER_API_KEY }}
+        twitter-app-secret: ${{ secrets.TWITTER_API_SECRET }}
+        twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }} 
