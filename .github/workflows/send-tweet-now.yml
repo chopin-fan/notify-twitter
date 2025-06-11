@@ -11,18 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Build action
-        run: npm run build
+        uses: actions/checkout@v3
         
       - name: Send Tweet
         uses: ./
@@ -35,7 +24,7 @@ jobs:
             🔗 提交: ${{ github.sha }}
             
             #GitHubActions #自动化 #Twitter #测试成功
-          twitter-app-key: "XQ2Csl2hcG4R1S5YtYHxIJLhS"
-          twitter-app-secret: "7XscNGjwuMA83JuDlDMpsWEc2Q298NRBa3evdn1vsNYgFbvJCP"
-          twitter-access-token: "1932234031439245312-lqodRLrv0pmSxNysICYOgex8FB7sa4"
-          twitter-access-token-secret: "Vrlaz7kYIQIB3hjrumzEegFV75PqU9uENuedJy7cBi3Jc" 
+          twitter-app-key: ${{ secrets.TWITTER_API_KEY }}
+          twitter-app-secret: ${{ secrets.TWITTER_API_SECRET }}
+          twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }} 
