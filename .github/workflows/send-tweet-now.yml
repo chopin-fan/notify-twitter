@@ -27,14 +27,7 @@ jobs:
       - name: Send Tweet
         uses: ./
         with:
-          message: |
-            🎉 GitHub Action 成功发送推文！
-            
-            ✨ 这是通过自动化程序发送的推文
-            📅 时间: ${{ github.event.head_commit.timestamp }}
-            🔗 提交: ${{ github.sha }}
-            
-            #GitHubActions #自动化 #Twitter #测试成功
+          message: '🎉 GitHub Action 成功发送推文！ #GitHubActions #测试成功'
           twitter-app-key: "XQ2Csl2hcG4R1S5YtYHxIJLhS"
           twitter-app-secret: "7XscNGjwuMA83JuDlDMpsWEc2Q298NRBa3evdn1vsNYgFbvJCP"
           twitter-access-token: "1932234031439245312-lqodRLrv0pmSxNysICYOgex8FB7sa4"
