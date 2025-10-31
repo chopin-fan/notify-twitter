@@ -1,0 +1,21 @@
+name: Test Working Baseline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-baseline:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Test baseline Twitter functionality
+      uses: ./
+      with:
+        message: '✅ 基线版本测试推文 - v1.0.0-twitter-working #BaselineTest'
+        twitter-app-key: ${{ secrets.TWITTER_API_KEY }}
+        twitter-app-secret: ${{ secrets.TWITTER_API_SECRET }}
+        twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }} 
